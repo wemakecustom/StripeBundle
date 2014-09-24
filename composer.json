@@ -19,8 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WMC\\StripeBundle": ""
+            "WMC\\StripeBundle\\": ""
         }
-    },
-    "target-dir": "WMC/StripeBundle"
+    }
 }
