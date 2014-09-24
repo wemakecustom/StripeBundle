@@ -1,7 +1,7 @@
 StripeBundle
 ============
 
-Provides a simple Symfony 2 Bundle to Wrap the Stripe PHP SDK 2 - https://github.com/stripe/stripe-php
+Provides a simple Symfony 2 Bundle to Wrap the Stripe PHP SDK - https://github.com/stripe/stripe-php
 
 ## Installation
 
