@@ -1,0 +1,10 @@
+services:
+    wmc_stripe.stripe:
+        class: WMC\StripeBundle\Service\StripeService
+        arguments: [%wmc_stripe.api_secret_key%]
+
+    wmc_stripe.stripe.twig_extension:
+        class: WMC\StripeBundle\Twig\StripeExtension
+        arguments: [%wmc_stripe.api_publishable_key%]
+        tags:
+            - { name: twig.extension }
