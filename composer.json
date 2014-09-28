@@ -1,7 +1,7 @@
 {
     "name": "wemakecustom/stripe-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony 2 MangoPayBundle, a wrapper for MangoPay 2 Api",
+    "description": "Symfony 2 StripeBundle, a wrapper for Stripe Api",
     "keywords": ["stripe", "symfony2", "bundle"],
     "homepage": "http://www.wemakecustom.com",
     "license": "MIT",
