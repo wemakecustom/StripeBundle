@@ -12,6 +12,7 @@ class CardFormHandler
     protected $request;
     protected $description;
     protected $customer;
+    protected $data;
 
     public function __construct(FormInterface $form, Request $request, $description)
     {
@@ -24,7 +25,7 @@ class CardFormHandler
         if ($this->request->getMethod() == 'POST') {
             $this->form->handleRequest($this->request);
             if ($this->form->isValid()) {
-                $this->onSuccess($this->form->getData()['token']);
+                $this->onSuccess($this->form->getData());
 
                 return true;
             }
@@ -33,16 +34,27 @@ class CardFormHandler
         return false;
     }
 
-    protected function onSuccess($token)
+    protected function onSuccess(array $data)
     {
         $customer = \Stripe_Customer::create(
             array(
-                "card" => $token,
+                "card" => $data['token'],
                 "description" => '' . $this->description
             )
         );
-
+        
+        $this->data = $data;
         $this->customer = $customer;
+    }
+
+    /**
+     * No critical card information here. Card information are deleted by the js before form submit for security
+     * 
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**
