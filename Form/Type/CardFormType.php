@@ -12,9 +12,25 @@ class CardFormType extends AbstractType
     {
         $builder
             ->add('card', 'text', array('required' => true, 'attr' => array('data-stripe' => 'number')))
-            ->add('cvc', 'text', array('required' => true, 'attr' => array('data-stripe' => 'cvc')))
-            ->add('month', 'text', array('required' => true, 'attr' => array('data-stripe' => 'exp-month')))
-            ->add('year', 'text', array('required' => true, 'attr' => array('data-stripe' => 'exp-year')))
+            ->add('cvc', 'integer', array('required' => true, 'attr' => array('data-stripe' => 'cvc')))
+            ->add(
+                'month',
+                'choice',
+                array(
+                    'required' => true,
+                    'attr' => array('data-stripe' => 'exp-month'),
+                    'choices' => array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'),
+                )
+            )
+            ->add(
+                'year',
+                'choice',
+                array(
+                    'required' => true,
+                    'attr' => array('data-stripe' => 'exp-year'),
+                    'choices' => range(date('Y'), date('Y') + 10),
+                )
+            )
             ->add('token', 'hidden');
     }
 
