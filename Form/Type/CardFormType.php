@@ -28,7 +28,7 @@ class CardFormType extends AbstractType
                 array(
                     'required' => true,
                     'attr' => array('data-stripe' => 'exp-year'),
-                    'choices' => range(date('Y'), date('Y') + 10),
+                    'choices' => array_combine(range(date('Y'), date('Y') + 10), range(date('Y'), date('Y') + 10)),
                 )
             )
             ->add('token', 'hidden');
