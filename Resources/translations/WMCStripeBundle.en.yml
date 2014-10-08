@@ -1,0 +1,7 @@
+form:
+  card:
+    number: Card Number
+    cvc: CVC
+    exp:
+      month: Month
+      year: Year
