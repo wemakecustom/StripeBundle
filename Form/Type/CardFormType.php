@@ -11,7 +11,12 @@ class CardFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('card', 'text', array('required' => true, 'attr' => array('data-stripe' => 'number')))
+            ->add('card', 'text', array(
+                'required' => true, 
+                'label' => 'Card Number',
+                'attr' => array('data-stripe' => 'number'),
+                )
+            )
             ->add('cvc', 'integer', array('required' => true, 'attr' => array('data-stripe' => 'cvc')))
             ->add(
                 'month',
