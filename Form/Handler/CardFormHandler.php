@@ -18,6 +18,7 @@ class CardFormHandler
     {
         $this->form = $form;
         $this->request = $request;
+        $this->description = $description;
     }
 
     public function process()
