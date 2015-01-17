@@ -25,10 +25,10 @@ function stripeResponseHandler(status, response) {
         // Insert the token into the form so it gets submitted to the server
         $form.find('#wmc_stripebundle_cardformtype_token').val(token);
         // Clear Form data for security
-        $form.find('#wmc_stripebundle_cardformtype_card').val('...');
-        $form.find('#wmc_stripebundle_cardformtype_cvc').val('...');
-        $form.find('#wmc_stripebundle_cardformtype_month').val('...');
-        $form.find('#wmc_stripebundle_cardformtype_year').val('...');
+        $form.find('#wmc_stripebundle_cardformtype_card').val('');
+        $form.find('#wmc_stripebundle_cardformtype_cvc').val('');
+        $form.find('#wmc_stripebundle_cardformtype_month').val('');
+        $form.find('#wmc_stripebundle_cardformtype_year').val('');
 
 
         // and submit
