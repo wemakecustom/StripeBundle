@@ -21,12 +21,12 @@ class CardFormHandler
         $this->description = $description;
     }
 
-    public function process()
+    public function process($descriptionMetadata = null)
     {
         if ($this->request->getMethod() == 'POST') {
             $this->form->handleRequest($this->request);
             if ($this->form->isValid()) {
-                $this->onSuccess($this->form->getData());
+                $this->onSuccess($this->form->getData(), $descriptionMetadata);
 
                 return true;
             }
@@ -35,12 +35,16 @@ class CardFormHandler
         return false;
     }
 
-    protected function onSuccess(array $data)
+    protected function onSuccess(array $data, $descriptionMetadata = null)
     {
+        if($descriptionMetadata){
+            $descriptionMetadata = $this->form->get($descriptionMetadata)->getData();
+        }
+
         $customer = \Stripe_Customer::create(
             array(
                 "card" => $data['token'],
-                "description" => '' . $this->description
+                "description" => '' . empty($descriptionMetadata) ? $this->description : $this->description . ' ('. $descriptionMetadata .')'
             )
         );
         
