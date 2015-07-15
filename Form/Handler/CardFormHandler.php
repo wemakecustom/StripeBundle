@@ -5,6 +5,8 @@ namespace WMC\StripeBundle\Form\Handler;
 use Symfony\Component\Form\FormInterface,
     Symfony\Component\HttpFoundation\Request;
 
+use Stripe\Customer;
+
 class CardFormHandler
 {
 
@@ -41,7 +43,7 @@ class CardFormHandler
             $descriptionMetadata = $this->form->get($descriptionMetadata)->getData();
         }
 
-        $customer = \Stripe_Customer::create(
+        $customer = Customer::create(
             array(
                 "card" => $data['token'],
                 "description" => '' . empty($descriptionMetadata) ? $this->description : $this->description . ' ('. $descriptionMetadata .')'

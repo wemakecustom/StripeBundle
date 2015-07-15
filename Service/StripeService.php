@@ -2,8 +2,9 @@
 
 namespace WMC\StripeBundle\Service;
 
+use Stripe\Stripe;
 
-class StripeService extends \Stripe
+class StripeService extends Stripe
 {
     protected $secretKey;
 
