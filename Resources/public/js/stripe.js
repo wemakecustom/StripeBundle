@@ -17,7 +17,7 @@ function stripeResponseHandler(status, response) {
 
     if (response.error) {
         // Show the errors on the form
-        $form.append($('<spam class="stripe-error">' +response.error.message +'</spam>'));
+        $form.append($('<span class="stripe-error">' +response.error.message +'</span>'));
         $form.find('button').prop('disabled', false);
     } else {
         // response contains id and card, which contains additional card details
