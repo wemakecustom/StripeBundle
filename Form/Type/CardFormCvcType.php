@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\Form;
+namespace WMC\StripeBundle\Form\Type;
 
 use WMC\StripeBundle\Form\Type\CardFormType;
 use Symfony\Component\Form\FormBuilderInterface;
-
+ 
 class CardFormCvcType extends CardFormType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
