@@ -18,13 +18,7 @@ class CardFormType extends AbstractType
                     'translation_domain' => 'WMCStripeBundle',
                 )
             )
-            ->add('cvc', 'integer', array(
-                    'required' => true,
-                    'attr' => array('data-stripe' => 'cvc'),
-                    'label' => 'form.card.cvc',
-                    'translation_domain' => 'WMCStripeBundle',
-                )
-            )
+           
             ->add(
                 'month',
                 'choice',
