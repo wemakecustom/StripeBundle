@@ -124,7 +124,7 @@ https://stripe.com/docs/tutorials/charges#saving-credit-card-details-for-later
 
 
 ```php
-            \Stripe_Charge::create(array(
+            \Stripe\Charge::create(array(
                     "amount" => round($price * 100),
                     "currency" => "usd",
                     "customer" => $customerId)
