@@ -2,6 +2,8 @@ services:
     wmc_stripe.stripe:
         class: WMC\StripeBundle\Service\StripeService
         arguments: [%wmc_stripe.api_secret_key%]
+        calls:
+            - [auth]
 
     wmc_stripe.stripe.twig_extension:
         class: WMC\StripeBundle\Twig\StripeExtension
