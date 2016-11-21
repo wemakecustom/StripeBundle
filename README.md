@@ -41,16 +41,7 @@ Edit your symfony config.yml file and add, at a minimum, the following lines:
 ## Utilisation
 
 ### Authentification
-In Stripe you have two form of authentication. The one by your server and the one by your client.
-
-#### To authenticate your server with the stripe secret key
-
-```php
-
-    $this->container->get('wmc_stripe.stripe')->auth();
-    // Instead of : Stripe::setApiKey("sk_somekey");
-
-```
+In Stripe you have two form of authentication. The one by your server and the one by your client. The authentication by your server it is done automatically when the service is called.
 
 #### To authenticate your client with the stripe publishable key
 
@@ -82,9 +73,6 @@ https://stripe.com/docs/tutorials/charges#saving-credit-card-details-for-later
 
     public function newPaymentMethodAction(Request $request)
     {
-
-
-        $this->container->get('wmc_stripe.stripe')->auth();
 
         $form = $this->createForm(new CardFormType());
         $formHandler = new CardFormHandler($form, $request, $stripeClientDescription);
