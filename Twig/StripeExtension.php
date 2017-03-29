@@ -2,7 +2,7 @@
 
 namespace WMC\StripeBundle\Twig;
 
-class StripeExtension extends \Twig_Extension
+class StripeExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
 
     protected $publishableKey;
