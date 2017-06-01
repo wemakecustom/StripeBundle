@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/framework-bundle": "^2.3",
+        "symfony/framework-bundle": ">=2.3",
         "stripe/stripe-php": "^2.0"
     },
     "autoload": {
